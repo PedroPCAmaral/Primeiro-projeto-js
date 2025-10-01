@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Atividade Avançada</title>
+</head>
+
+<body>
+    <h1 id="titulo">Turma de Programação</h1>
+    <p id="mensagem">Sejam bem-vindos!</p>
+
+    <div class="caixa">Mensagem 1</div>
+    <div class="caixa">Mensagem 2</div> 
+    <div class="caixa">Mensagem 3</div>
+
+    <br><br>
+    <button onclick="alterarTitulo()">Alterar título</button>
+    <button onclick="trocarCor()">Trocar cor de fundo</button>
+    <button onclick="alterarCaixa()">Alterar primeira caixa</button>
+
+    <script>
+        function alterarTitulo() {
+            document.getElementById("titulo").innerHTML = "Nova turma de JavaScript";
+        }
+
+        function trocarCor() {
+            document.querySelector("body").style.backgroundColor = "lightgreen";
+        }
+
+        function alterarCaixa() {
+            document.querySelector(".caixa").innerHTML = "Caixa alterada!";
+        }
+    </script>
+</body>
+
+</html>
