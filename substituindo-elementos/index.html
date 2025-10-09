@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 6 - ReplaceWith</title>
+</head>
+
+<body>
+    <h1>Substituindo Elementos</h1>
+
+    <p id="textoOriginal">Este é o texto original.</p>
+    <button id="botaoTrocar">Trocar Texto</button>
+
+    <script>
+        
+        const textoOriginal = document.getElementById("textoOriginal");
+        const botaoTrocar = document.getElementById("botaoTrocar");
+
+        
+        botaoTrocar.addEventListener("click", function () {
+            
+            const novoParagrafo = document.createElement("p");
+            novoParagrafo.textContent = "Texto substituído dinamicamente!";
+
+            
+            novoParagrafo.style.transition = "opacity 0.4s";
+            novoParagrafo.style.opacity = 0; 
+
+            
+            textoOriginal.replaceWith(novoParagrafo);
+
+            
+            requestAnimationFrame(() => {
+                novoParagrafo.style.opacity = 1; 
+            });
+        });
+    </script>
+
+</body>
+
+</html>
