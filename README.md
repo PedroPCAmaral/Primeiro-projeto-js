@@ -11,3 +11,6 @@ O projeto é um **saudador interativo** feito em HTML e JavaScript.
 ## Autor
 - Nome: [Coloque seu nome aqui]# Primeiro-projeto-js
 Projeto simples em JavaScript para aprender GitHub Desktop
+
+
+Tem exercicios em HTML JavaScript e APIs
