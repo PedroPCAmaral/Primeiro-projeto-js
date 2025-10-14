@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumir API</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+
+    button {
+      margin: 20px;
+      padding: 10px 20px;
+    }
+
+    .user-card {
+      border: 1px solid #ccc;
+      margin: 10px auto;
+      padding: 10px;
+      width: 300px;
+      border-radius: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Consumindo API com JavaScript</h1>
+
+  <button id="btn">Carregar Usuários</button>
+  <div id="usuario"></div>
+
+  <script>
+    // Exemplo simples de consumo de API com async/await
+    document.getElementById('btn').addEventListener('click', async () => {
+
+      const container = document.getElementById('usuario');
+      container.innerHTML = '<p>Carregando...</p>';
+
+      try {
+        // Faz a requisição (5 usuários)
+        const res = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
+        const data = await res.json();
+
+        // Limpa o container antes de exibir
+        container.innerHTML = '';
+
+        // Exibe cada usuário em um card
+        data.forEach(user => {
+          container.innerHTML += `
+            <div class="user-card">
+              <h3>${user.name}</h3>
+              <p><strong>Email:</strong> ${user.email}</p>
+              <p><strong>Cidade:</strong> ${user.address.city}</p>
+            </div>
+          `;
+        });
+
+      } catch (erro) {
+        // Em caso de erro
+        container.textContent = 'Erro ao buscar usuários!';
+        console.error(erro);
+      }
+    });
+  </script>
+</body>
+</html>
